@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Estilo · Tu Menú</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-leaf">🌿</span>
+  <h1>Vamos a diseñar<br><em>tu menú ideal</em></h1>
+  <p>Responde con honestidad. No hay respuestas correctas — cada elección nos acerca a tu estilo único.</p>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar">
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0 / 19</div>
+</div>
+
+<!-- FORM -->
+<div class="container" id="form-container">
+<form id="main-form" novalidate>
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 1 — DATOS DE CONTACTO
+  ═══════════════════════════════════════════ -->
+  <div class="form-section">
+    <div class="section-pill"><span class="dot"></span> Tus datos</div>
+
+    <div class="q-block">
+      <div class="q-label">01 — Información personal</div>
+      <div class="q-text">¿Cómo te llamamos y cómo te contactamos?</div>
+      <div class="input-row" style="margin-bottom:12px">
+        <div>
+          <input class="input-field" type="text" name="nombre" id="f-nombre" placeholder="Tu nombre completo" autocomplete="name">
+          <div class="field-error" id="err-nombre">Por favor escribe tu nombre.</div>
+        </div>
+        <div>
+          <input class="input-field" type="tel" name="celular" id="f-celular" placeholder="WhatsApp o celular" autocomplete="tel">
+          <div class="field-error" id="err-celular">Por favor escribe tu número.</div>
+        </div>
+      </div>
+      <input class="input-field" type="email" name="correo" id="f-correo" placeholder="Correo electrónico" autocomplete="email">
+      <div class="field-error" id="err-correo">Por favor escribe un correo válido.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">02 — Tu negocio</div>
+      <div class="q-text">¿Cómo se llama tu negocio y qué tipo de lugar es?</div>
+      <input class="input-field" type="text" name="negocio_nombre" id="f-negocio" placeholder="Nombre de tu negocio" style="margin-bottom:12px">
+      <div class="field-error" id="err-negocio">Por favor escribe el nombre de tu negocio.</div>
+      <textarea class="input-field" name="negocio_descripcion" id="f-desc" rows="3" placeholder="Ej: Cafetería de jugos y bowls saludables en Guadalajara, abierta desde 2022..." style="resize:vertical"></textarea>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">03 — Clientes y ubicación</div>
+      <div class="q-text">¿A quién le vendes principalmente y dónde estás?</div>
+      <div class="input-row" style="margin-bottom:12px">
+        <input class="input-field" type="text" name="ciudad" placeholder="Ciudad o municipio">
+        <input class="input-field" type="text" name="tipo_cliente" placeholder="Ej: jóvenes fitness, familias...">
+      </div>
+      <input class="input-field" type="number" name="ticket_promedio" placeholder="Ticket promedio en pesos (ej: 120)" min="0">
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">04 — Redes sociales</div>
+      <div class="q-text">¿Tienes alguna red social activa? (opcional)</div>
+      <div class="input-row">
+        <input class="input-field" type="text" name="instagram" placeholder="Instagram @usuario">
+        <input class="input-field" type="text" name="facebook" placeholder="Facebook o TikTok">
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 2 — MUNDO SENSORIAL
+  ═══════════════════════════════════════════ -->
+  <div class="form-section">
+    <div class="section-pill"><span class="dot"></span> Mundo sensorial</div>
+
+    <div class="q-block">
+      <div class="q-label">05 — Escapada soñada</div>
+      <div class="q-text">Si pudieras escaparte este fin de semana, ¿a dónde irías?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="5" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">A la playa</div>
+          <div class="opt-desc">Aire salado, colores vivos, arena blanca</div>
+        </div>
+        <div class="opt" data-q="5" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">A un bosque o montaña</div>
+          <div class="opt-desc">Verde, silencio, tierra y madera</div>
+        </div>
+        <div class="opt" data-q="5" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">A una ciudad nueva</div>
+          <div class="opt-desc">Gente, energía, arquitectura, movimiento</div>
+        </div>
+        <div class="opt" data-q="5" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">A una hacienda o rancho</div>
+          <div class="opt-desc">Calidez, tradición, calma profunda</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">06 — Hora del día</div>
+      <div class="q-text">¿Qué hora del día te hace sentir más tú?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="6" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">El amanecer</div>
+          <div class="opt-desc">Luz fresca, esperanza, todo por empezar</div>
+        </div>
+        <div class="opt" data-q="6" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Mediodía con todo el sol</div>
+          <div class="opt-desc">Energía máxima, claridad, presencia</div>
+        </div>
+        <div class="opt" data-q="6" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">El atardecer</div>
+          <div class="opt-desc">Colores cálidos, nostalgia, pausa</div>
+        </div>
+        <div class="opt" data-q="6" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">La noche</div>
+          <div class="opt-desc">Misterio, enfoque, ambiente íntimo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">07 — Primer impresión</div>
+      <div class="q-text">Cuando entras a un lugar que te encanta, ¿qué es lo primero que notas?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="7" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">El olor y la luz</div>
+          <div class="opt-desc">Atmósfera sensorial antes que visual</div>
+        </div>
+        <div class="opt" data-q="7" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">El orden y la limpieza</div>
+          <div class="opt-desc">Todo en su lugar, sin ruido visual</div>
+        </div>
+        <div class="opt" data-q="7" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Los colores y los detalles</div>
+          <div class="opt-desc">Que cada rincón tenga personalidad</div>
+        </div>
+        <div class="opt" data-q="7" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">La gente y el movimiento</div>
+          <div class="opt-desc">La energía colectiva del espacio</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 3 — PERSONALIDAD
+  ═══════════════════════════════════════════ -->
+  <div class="form-section">
+    <div class="section-pill"><span class="dot"></span> Personalidad y energía</div>
+
+    <div class="q-block">
+      <div class="q-label">08 — Estilo personal</div>
+      <div class="q-text">¿Cómo describe la gente que te conoce tu estilo?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="8" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Sencillo y elegante</div>
+          <div class="opt-desc">Menos es más, sin adornos innecesarios</div>
+        </div>
+        <div class="opt" data-q="8" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Cálido y cercano</div>
+          <div class="opt-desc">Haces que la gente se sienta en casa</div>
+        </div>
+        <div class="opt" data-q="8" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Dinámico y con energía</div>
+          <div class="opt-desc">Siempre en movimiento, contagioso</div>
+        </div>
+        <div class="opt" data-q="8" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Cuidado y con detalle</div>
+          <div class="opt-desc">Nada se deja al azar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">09 — Referente</div>
+      <div class="q-text">Si tu negocio fuera una persona famosa, ¿quién sería?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="9" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Gwyneth Paltrow (Goop)</div>
+          <div class="opt-desc">Wellness, élite consciente, minimal</div>
+        </div>
+        <div class="opt" data-q="9" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Sofía Vergara</div>
+          <div class="opt-desc">Calorosa, vibrante, con personalidad</div>
+        </div>
+        <div class="opt" data-q="9" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Elon Musk</div>
+          <div class="opt-desc">Innovación, tecnología, sin límites</div>
+        </div>
+        <div class="opt" data-q="9" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Martha Stewart</div>
+          <div class="opt-desc">Clásico, refinado, atención al detalle</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">10 — Tiempo libre</div>
+      <div class="q-text">Cuando tienes un momento para ti, ¿qué haces?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="10" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Medito, yoga o salgo a correr</div>
+          <div class="opt-desc">Cuerpo y mente alineados</div>
+        </div>
+        <div class="opt" data-q="10" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Cocino o salgo a comer</div>
+          <div class="opt-desc">El placer está en compartir</div>
+        </div>
+        <div class="opt" data-q="10" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Escucho música o busco algo nuevo</div>
+          <div class="opt-desc">Siempre curiosidad, siempre movimiento</div>
+        </div>
+        <div class="opt" data-q="10" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Leo o veo algo en casa</div>
+          <div class="opt-desc">Descanso consciente, quietud</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 4 — ESTÉTICA VISUAL
+  ═══════════════════════════════════════════ -->
+  <div class="form-section">
+    <div class="section-pill"><span class="dot"></span> Estética y referencias</div>
+
+    <div class="q-block">
+      <div class="q-label">11 — Interior ideal</div>
+      <div class="q-text">¿Cuál de estos interiores te gustaría más para comer?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="11" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Blanco, madera clara, plantas</div>
+          <div class="opt-desc">Minimalismo nórdico y natural</div>
+        </div>
+        <div class="opt" data-q="11" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Adobe, terracota, artesanías</div>
+          <div class="opt-desc">Raíces, calidez, alma mexicana</div>
+        </div>
+        <div class="opt" data-q="11" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Industrial, negro, acero y neon sutil</div>
+          <div class="opt-desc">Urbano, moderno, con actitud</div>
+        </div>
+        <div class="opt" data-q="11" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Verde oscuro, mármol, latón</div>
+          <div class="opt-desc">Lujo sobrio, atemporal</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">12 — Fotografía</div>
+      <div class="q-text">¿Qué tipo de foto de comida te llama más la atención en redes?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="12" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Flat lay limpio sobre blanco</div>
+          <div class="opt-desc">Orden, composición, claridad</div>
+        </div>
+        <div class="opt" data-q="12" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Colores saturados, fruta y verdura</div>
+          <div class="opt-desc">Explosión visual, abundancia natural</div>
+        </div>
+        <div class="opt" data-q="12" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Acción, manos, movimiento</div>
+          <div class="opt-desc">Proceso vivo, espontáneo y real</div>
+        </div>
+        <div class="opt" data-q="12" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Tonos tierra, luz natural difusa</div>
+          <div class="opt-desc">Elegancia orgánica y atemporal</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">13 — Marca de referencia</div>
+      <div class="q-text">¿Cuál de estas marcas admiras más estéticamente?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="13" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Sweetgreen</div>
+          <div class="opt-desc">Clean, fresco, minimal, verde y crema</div>
+        </div>
+        <div class="opt" data-q="13" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Café Tacuba / El Mayor</div>
+          <div class="opt-desc">Raíces mexicanas con carácter propio</div>
+        </div>
+        <div class="opt" data-q="13" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Shake Shack / Chipotle</div>
+          <div class="opt-desc">Moderno, directo, con energía urbana</div>
+        </div>
+        <div class="opt" data-q="13" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Nobu / Rosewood</div>
+          <div class="opt-desc">Sofisticación, lujo, detalle perfecto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 5 — COLOR Y EMOCIÓN
+  ═══════════════════════════════════════════ -->
+  <div class="form-section">
+    <div class="section-pill"><span class="dot"></span> Color y emoción</div>
+
+    <div class="q-block">
+      <div class="q-label">14 — Paleta favorita</div>
+      <div class="q-text">¿Cuál de estos colores describe mejor cómo quieres que se sienta tu negocio?</div>
+      <div class="tags-wrap" id="tq14"></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">15 — Emoción principal</div>
+      <div class="q-text">¿Qué quieres que sienta tu cliente al abrir tu menú?</div>
+      <div class="tags-wrap" id="tq15"></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">16 — Tipografía</div>
+      <div class="q-text">¿Cuál de estas tipografías sientes más tuya?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="16" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title" style="font-family:'Playfair Display',serif;font-style:italic">Serif clásica e italiana</div>
+          <div class="opt-desc">Elegancia atemporal</div>
+        </div>
+        <div class="opt" data-q="16" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title" style="letter-spacing:.06em;font-size:12px;text-transform:uppercase">SANS-SERIF LIMPIA</div>
+          <div class="opt-desc">Claridad y frescura moderna</div>
+        </div>
+        <div class="opt" data-q="16" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title" style="font-size:15px;font-weight:700;letter-spacing:-.02em">Negrita con carácter</div>
+          <div class="opt-desc">Presencia y energía</div>
+        </div>
+        <div class="opt" data-q="16" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title" style="font-family:'Playfair Display',serif">Script o caligráfica</div>
+          <div class="opt-desc">Artesanal y personal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 6 — NAVEGACIÓN Y MENÚ
+  ═══════════════════════════════════════════ -->
+  <div class="form-section">
+    <div class="section-pill"><span class="dot"></span> Menú y navegación</div>
+
+    <div class="q-block">
+      <div class="q-label">17 — Navegación</div>
+      <div class="q-text">Cuando buscas algo en una app o página, ¿qué prefieres?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="17" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Que encuentre todo de inmediato</div>
+          <div class="opt-desc">Sin pasos extras, directo al punto</div>
+        </div>
+        <div class="opt" data-q="17" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Que me sorprenda con algo nuevo</div>
+          <div class="opt-desc">El recorrido es parte del placer</div>
+        </div>
+        <div class="opt" data-q="17" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Con categorías claras y ordenadas</div>
+          <div class="opt-desc">Secciones bien definidas</div>
+        </div>
+        <div class="opt" data-q="17" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Con fotos grandes que me provoquen</div>
+          <div class="opt-desc">Lo visual me convence primero</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">18 — Detalle del platillo</div>
+      <div class="q-text">¿Cuánta información quieres dar sobre cada artículo?</div>
+      <div class="opts-grid">
+        <div class="opt" data-q="18" data-v="A" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Solo el nombre</div>
+          <div class="opt-desc">Confianza total en el producto</div>
+        </div>
+        <div class="opt" data-q="18" data-v="B" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Nombre + ingredientes principales</div>
+          <div class="opt-desc">Lo justo para entender qué es</div>
+        </div>
+        <div class="opt" data-q="18" data-v="C" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Descripción completa + beneficios</div>
+          <div class="opt-desc">El cliente merece saber todo</div>
+        </div>
+        <div class="opt" data-q="18" data-v="D" onclick="pick(this)">
+          <div class="opt-check"></div>
+          <div class="opt-title">Foto grande + descripción poética</div>
+          <div class="opt-desc">Que sepa cómo se va a sentir</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">19 — Formato del menú</div>
+      <div class="q-text">¿Cómo imaginas el menú ideal para tu negocio?</div>
+      <div class="tags-wrap" id="tq19"></div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-label">Extra — Cuéntame más</div>
+      <div class="q-text">¿Hay algo más que quieras que sepa sobre tu negocio o visión?</div>
+      <textarea class="input-field" name="comentarios" rows="4" placeholder="Referencias, ideas, lo que sea..." style="resize:vertical"></textarea>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-area">
+    <p class="submit-note">Al enviar este formulario, recibirás tu perfil de estilo completo<br>y tu diseñador recibirá toda la información para comenzar.</p>
+    <button type="submit" class="btn-submit" id="btn-submit">
+      <span id="btn-text">Enviar y ver mi perfil →</span>
+    </button>
+    <div style="margin-top:14px;font-size:12px;color:var(--muted)">🔒 Tu información es privada y solo se usa para diseñar tu menú.</div>
+  </div>
+
+</form>
+</div>
+
+<!-- SUCCESS SCREEN -->
+<div class="container" id="success-screen" style="display:none">
+  <div class="success-icon">✓</div>
+  <h2>¡Listo, gracias!</h2>
+  <p>Tu diseñador ya recibió toda tu información y se pondrá en contacto pronto.<br>Aquí está tu perfil de estilo:</p>
+
+  <div class="result-card" id="result-card">
+    <h3>Tu perfil de estilo</h3>
+    <div class="profile-name" id="profile-name-display"></div>
+    <div class="swatches-row" id="swatches-display"></div>
+    <div id="result-rows-display"></div>
+    <div class="share-hint">
+      📸 Toma una captura de pantalla de esta página para tenerla de referencia y compartirla con tu diseñador.
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
