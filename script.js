@@ -241,7 +241,7 @@ document.getElementById('main-form').addEventListener('submit', async function (
   //   2. Crea un nuevo form, copia tu endpoint (ej: https://formspree.io/f/xyzabcde)
   //   3. Reemplaza la URL de abajo con tu endpoint
   // ─────────────────────────────────────────────
-  const FORMSPREE_URL = 'https://formspree.io/f/https://formspree.io/f/xvzvjjrk'; // ← CAMBIA ESTO
+  const FORMSPREE_URL = 'https://formspree.io/f/xvzvjjrk'; // ← CAMBIA ESTO
 
   try {
     const res = await fetch(FORMSPREE_URL, {
